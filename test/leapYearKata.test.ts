@@ -17,3 +17,8 @@ it('Should return true for a year divisible by 4 but not by 100', () => {
    expect(isLeapYear(2004)).toBe(true);
    expect(isLeapYear(2008)).toBe(true);
 });
+
+it('Should return false for a year not divisible by 4', () => {
+   expect(isLeapYear(2017)).toBe(false);
+   expect(isLeapYear(2009)).toBe(false);
+});
