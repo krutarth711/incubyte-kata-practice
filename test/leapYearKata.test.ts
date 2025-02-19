@@ -1,7 +1,11 @@
 import isLeapYear from "../src/leapYearKata";
 
 it('Should return false for null value', () => {
-   expect(isLeapYear()).toBe(false);
+   expect(() => isLeapYear()).toThrow("Missing argument. Please provide a year.");
+});
+
+it('Should return false for negative values', () => {
+    expect(() => isLeapYear(-12)).toThrow("Invalid year. Please provide a non-negative integer.");
 });
 
 it('Should return false for 0', () => {

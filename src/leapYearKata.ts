@@ -1,4 +1,10 @@
-const isLeapYear = (year = -1): boolean => {
+const isLeapYear = (year?: number): boolean => {
+    if (year === undefined) {
+        throw new Error("Missing argument. Please provide a year.");
+    }
+    if (!Number.isInteger(year) || year < 0) {
+        throw new Error("Invalid year. Please provide a non-negative integer.");
+    }
     return isDivisibleBy400(year) || (isDivisibleBy4(year) && !isDivisibleBy100(year));
 }
 
