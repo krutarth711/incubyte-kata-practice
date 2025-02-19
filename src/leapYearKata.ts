@@ -1,8 +1,14 @@
-const isLeapYear = (year = 0): boolean => {
-    if (!year || (year % 100 === 0 && year % 400 !== 0) || year % 4 !== 0) {
+const isLeapYear = (year = -1): boolean => {
+    if(year % 400 === 0) {
+        return true;
+    }
+    if(year % 100 === 0) {
         return false;
     }
-    return true;
+    if(year % 4 === 0) {
+        return true;
+    }
+    return false;
 }
 
 export default isLeapYear;
