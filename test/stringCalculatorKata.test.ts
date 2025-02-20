@@ -20,7 +20,19 @@ it('Should return the sum of any number of comma separated numbers ', () => {
 })
 
 it('Should return the sum of 2 new line character separated numbers ', () => {
-    console.log(add('1\n2\n3\n4'));
     expect(add('1\n2\n3\n4')).toBe(10);
     expect(add('3\n9\n1')).toBe(13);
+})
+
+it('Should return the sum of 2 numbers separated by custom delimiter ', () => {
+    expect(add('//;\n1;2')).toBe(3);
+    expect(add('//&\n4&5&1')).toBe(10);
+})
+
+it('Should an exception if there is any negative number', () => {
+    expect(() => add('-1,2,4')).toThrow('No negative numbers are allowed: -1');
+})
+
+it('Should an exception with number if there are multiple negative numbers', () => {
+    expect(() => add('-1,-2,4')).toThrow('No negative numbers are allowed: -1, -2');
 })
